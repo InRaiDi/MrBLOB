@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour
     //public HeroAnimState heroAnimState; // Is used to manage hero animation state
     public SpriteRenderer spriteRenderer; // Is used to store SpriteRendere component of the hero
     [Header("Movement Values")]
+    public Transform isGroundedChecker;
+    public float checkGroundRadius;
+    public LayerMask groundLayer;
     public float speed; // Is used to store speed of the hero movement
     public float jumpForce; // Is used to store jump force of the hero
     [Header("Maximum Velocity")]
@@ -20,7 +23,6 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         rgb = GetComponent<Rigidbody2D>(); // Is used to get Rigidbody2D component
         //heroAnimState = HeroAnimState.IDLE; // Sets animation of the hero to Idle
     }
@@ -28,8 +30,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //Debug.DrawRay(transform.position, Vector2.down * 0.1f, Color.red);
+        Debug.DrawRay(transform.position, Vector2.down * 0.1f, Color.red);
         // Move is used to move player
+        CheckIfGrounded();
         Move();
     }
 
@@ -38,8 +41,8 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void Move()
     {
-        grounded = Physics2D.BoxCast(transform.position, new Vector2(0.5f, 0.5f), 0.0f, Vector2.down, 0.5f, 1 << LayerMask.NameToLayer("Ground"));
-
+        //grounded = Physics2D.BoxCast(transform.position, new Vector2(0.5f, 0.5f), 0.0f, Vector2.down, 0.5f, 1 << LayerMask.NameToLayer("Ground"));
+        
         if ((Input.GetAxis("Horizontal") > 0) && (grounded))
         {
             spriteRenderer.flipX = false;
@@ -75,5 +78,18 @@ public class PlayerController : MonoBehaviour
     public void Reset()
     {
         this.transform.position = new Vector2(0f, 1f);
+    }
+
+    void CheckIfGrounded()
+    {
+        Collider2D collider = Physics2D.OverlapCircle(isGroundedChecker.position, checkGroundRadius, groundLayer);
+        if (collider != null)
+        {
+            grounded = true;
+        }
+        else
+        {
+            grounded = false;
+        }
     }
 }
