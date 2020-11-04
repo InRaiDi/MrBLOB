@@ -14,7 +14,7 @@ public class ScoreSystem : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
         void OnTriggerEnter2D(Collider2D other)
         {

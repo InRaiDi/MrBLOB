@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -20,11 +21,17 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rgb; // Is used to store Rigidbody2D component of the hero
 
     public bool grounded; // Is used to represent boolean(true or false) value to check if the hero is on the ground
-    // Start is called before the first frame update
+                          // Start is called before the first frame update
+
+    [Header("Scoring")]
+    public int coins; //counter of coins
+    public Text coinCountText; //where we show the score
+
     void Start()
     {
         rgb = GetComponent<Rigidbody2D>(); // Is used to get Rigidbody2D component
         //heroAnimState = HeroAnimState.IDLE; // Sets animation of the hero to Idle
+        coins = 0; // counting score
     }
 
     // Update is called once per frame
@@ -34,6 +41,18 @@ public class PlayerController : MonoBehaviour
         // Move is used to move player
         CheckIfGrounded();
         Move();
+        void OnTriggerEnter2D(Collider2D other)
+        {
+            
+            if (other.tag == "Coin")
+            {
+                coins++;
+                Debug.Log("Coins:" + coins);
+                Destroy(other.gameObject);
+                coinCountText.text = "Score: " + coins;
+            }
+          
+        }
     }
 
     /// <summary>
