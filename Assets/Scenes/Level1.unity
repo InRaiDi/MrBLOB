@@ -1973,7 +1973,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -2010,12 +2010,12 @@ MonoBehaviour:
   anim: {fileID: 1350236688}
   spriteRenderer: {fileID: 1350236689}
   isGroundedChecker: {fileID: 1970077741}
-  checkGroundRadius: 0.05
+  checkGroundRadius: 0.2
   groundLayer:
     serializedVersion: 2
     m_Bits: 512
-  speed: 100
-  jumpForce: 0
+  speed: 10
+  jumpForce: 800
   maxVel: {x: 2, y: 2}
   grounded: 0
 --- !u!1001 &1389280648

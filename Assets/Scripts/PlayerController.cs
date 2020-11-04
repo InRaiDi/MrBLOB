@@ -67,10 +67,11 @@ public class PlayerController : MonoBehaviour
         {
             //anim.SetInteger("AnimState", (int)HeroAnimState.JUMP);
             //heroAnimState = HeroAnimState.JUMP;
-            rgb.AddForce(Vector2.up * jumpForce);
+            rgb.AddForce(new Vector2(0.0f, jumpForce));
             grounded = false;
         }
-        rgb.velocity = new Vector2(Mathf.Clamp(rgb.velocity.x, -maxVel.x, maxVel.x), Mathf.Clamp(rgb.velocity.y, -maxVel.y, maxVel.y));
+        rgb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, rgb.velocity.y);
+        //rgb.velocity = new Vector2(Mathf.Clamp(rgb.velocity.x, -maxVel.x, maxVel.x), Mathf.Clamp(rgb.velocity.y, -maxVel.y, maxVel.y));
     }
     /// <summary>
     /// This method is used to reset player's position
