@@ -30,6 +30,7 @@ public class GameController : MonoBehaviour
         set
         {
             lives = value;
+            livesLabel.text = "Lives: " + lives.ToString();
             if(lives <= 0)
             {
                 SceneManager.LoadScene("MenuScene");
@@ -42,6 +43,12 @@ public class GameController : MonoBehaviour
     {
         coinsCount = coins.transform.childCount;
         scoreLabel.text = "0" + " / " + coinsCount.ToString();
+        Lives = 3;
+    }
+    public void GotHit()
+    {
+        //this.liveImages[lives].enabled = false;
+        Lives--;
     }
 
     // Update is called once per frame

@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void Reset()
     {
-        this.transform.position = new Vector2(0f, 1f);
+        this.transform.position = new Vector2(0f, -9f);
     }
 
     void CheckIfGrounded()
@@ -109,6 +109,21 @@ public class PlayerController : MonoBehaviour
                 collision.GetComponent<BoxCollider2D>().enabled = false;
                 Destroy(collision.gameObject);
                 gameController.Score += 1;
+                break;
+        }
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case "Death_Point":
+                gameController.GotHit();
+                Reset();
+                break;
+            case "Enemy":
+                gameController.GotHit();
+                Reset();
                 break;
         }
     }
