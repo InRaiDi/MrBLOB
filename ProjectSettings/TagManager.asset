@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Death_Point
   - Path
+  - Border
   layers:
   - Default
   - TransparentFX
