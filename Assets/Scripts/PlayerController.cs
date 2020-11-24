@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Util;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        Debug.Log(SceneManager.GetActiveScene().name);
         rgb = GetComponent<Rigidbody2D>(); // Is used to get Rigidbody2D component
         //heroAnimState = HeroAnimState.IDLE; // Sets animation of the hero to Idle
         //coins = 0; // counting score
@@ -109,6 +111,21 @@ public class PlayerController : MonoBehaviour
                 collision.GetComponent<BoxCollider2D>().enabled = false;
                 Destroy(collision.gameObject);
                 gameController.Score += 1;
+                break;
+            case "Transition":
+                switch (SceneManager.GetActiveScene().name)
+                {
+                    case "Level1":
+                        SceneManager.LoadScene("Level2");
+                        Debug.Log("Suppose to do something");
+                        break;
+                    case "Level2":
+                        SceneManager.LoadScene("Level3");
+                        break;
+                    case "Level3":
+                        SceneManager.LoadScene("MenuScene");
+                        break;
+                }
                 break;
         }
     }
