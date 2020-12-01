@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7296e9e6a53ca74985645f6f9ba3e83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coins: {fileID: 0}
+  coins: {fileID: 7865693960968488328, guid: c4857af7e63e3a243a8d1ea0770717e4, type: 3}
   coinsCount: 0
   scoreLabel: {fileID: 0}
   livesLabel: {fileID: 0}

@@ -54,14 +54,15 @@ public class PlayerController : MonoBehaviour
     {
         //grounded = Physics2D.BoxCast(transform.position, new Vector2(0.5f, 0.5f), 0.0f, Vector2.down, 0.5f, 1 << LayerMask.NameToLayer("Ground"));
 
-        if ((Input.GetAxis("Horizontal") > 0) && (grounded))
+
+        if (Input.GetKeyDown(KeyCode.D) && (grounded))
         {
             spriteRenderer.flipX = false;
             heroAnimState = PlayerAnimState.WALK;
             anim.SetInteger("AnimState", (int)PlayerAnimState.WALK);
             rgb.AddForce(Vector2.right * speed);
         }
-        if ((Input.GetAxis("Horizontal") < 0) && (grounded))
+        if (Input.GetKeyDown(KeyCode.A) && (grounded))
         {
             spriteRenderer.flipX = true;
             heroAnimState = PlayerAnimState.WALK;
