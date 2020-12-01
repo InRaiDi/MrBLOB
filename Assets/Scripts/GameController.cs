@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour
     public int coinsCount;
     public Text scoreLabel;
     public Text livesLabel;
+    [Header("Sounds")]
+    public AudioSource enemySound;
 
     public int Score
     {
@@ -49,6 +51,7 @@ public class GameController : MonoBehaviour
     {
         //this.liveImages[lives].enabled = false;
         Lives--;
+        enemySound.Play();
     }
 
     // Update is called once per frame

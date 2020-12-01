@@ -27,7 +27,9 @@ public class PlayerController : MonoBehaviour
 
     [Header("Scoring")]
     public GameController gameController;
-
+    [Header("Sounds")]
+    public AudioSource coinSound;
+    public AudioSource jumpSound;
     void Start()
     {
         Debug.Log(SceneManager.GetActiveScene().name);
@@ -74,6 +76,7 @@ public class PlayerController : MonoBehaviour
         }
         if ((Input.GetAxis("Jump") > 0) && (grounded))
         {
+            jumpSound.Play();
             anim.SetInteger("AnimState", (int)PlayerAnimState.JUMP);
             heroAnimState = PlayerAnimState.JUMP;
             rgb.AddForce(new Vector2(0.0f, jumpForce));
@@ -110,6 +113,7 @@ public class PlayerController : MonoBehaviour
             case "Coin":
                 collision.GetComponent<BoxCollider2D>().enabled = false;
                 Destroy(collision.gameObject);
+                coinSound.Play();
                 gameController.Score += 1;
                 break;
             case "Transition":
