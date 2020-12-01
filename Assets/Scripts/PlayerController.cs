@@ -117,19 +117,23 @@ public class PlayerController : MonoBehaviour
                 gameController.Score += 1;
                 break;
             case "Transition":
-                switch (SceneManager.GetActiveScene().name)
+                if(gameController.Score == gameController.coinsCount)
                 {
-                    case "Level1":
-                        SceneManager.LoadScene("Level2");
-                        Debug.Log("Suppose to do something");
-                        break;
-                    case "Level2":
-                        SceneManager.LoadScene("Level3");
-                        break;
-                    case "Level3":
-                        SceneManager.LoadScene("MenuScene");
-                        break;
+                    switch (SceneManager.GetActiveScene().name)
+                    {
+                        case "Level1":
+                            SceneManager.LoadScene("Level2");
+                            Debug.Log("Suppose to do something");
+                            break;
+                        case "Level2":
+                            SceneManager.LoadScene("Level3");
+                            break;
+                        case "Level3":
+                            SceneManager.LoadScene("GameOver");
+                            break;
+                    }
                 }
+                
                 break;
         }
     }
