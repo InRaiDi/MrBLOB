@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    
+
     [Header("Player Objects")]
     public Animator anim; // Is used to store Animator component of the hero 
     public PlayerAnimState heroAnimState; // Is used to manage hero animation state
@@ -70,12 +72,12 @@ public class PlayerController : MonoBehaviour
             rgb.AddForce(Vector2.left * speed);
         }
 
-        if (Input.GetAxis("Horizontal") == 0 && (grounded))
+        if (Input.GetAxis("P1_Horizontal") == 0 && (grounded))
         {
             heroAnimState = PlayerAnimState.IDLE;
             anim.SetInteger("AnimState", (int)PlayerAnimState.IDLE);
         }
-        if ((Input.GetAxis("Jump") > 0) && (grounded))
+        if ((Input.GetAxis("P1_Jump") > 0) && (grounded))
         {
             jumpSound.Play();
             anim.SetInteger("AnimState", (int)PlayerAnimState.JUMP);
@@ -83,7 +85,7 @@ public class PlayerController : MonoBehaviour
             rgb.AddForce(new Vector2(0.0f, jumpForce));
             grounded = false;
         }
-        rgb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, rgb.velocity.y);
+        rgb.velocity = new Vector2(Input.GetAxis("P1_Horizontal") * speed, rgb.velocity.y);
         //rgb.velocity = new Vector2(Mathf.Clamp(rgb.velocity.x, -maxVel.x, maxVel.x), Mathf.Clamp(rgb.velocity.y, -maxVel.y, maxVel.y));
     }
     /// <summary>
@@ -146,10 +148,11 @@ public class PlayerController : MonoBehaviour
             case "Death_Point":
                 gameController.GotHit();
                 Reset();
+                
                 break;
             case "Enemy":
                 gameController.GotHit();
-                Reset();
+                //Reset();
                 break;
         }
     }

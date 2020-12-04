@@ -1148,7 +1148,7 @@ Transform:
   m_LocalScale: {x: 3.073997, y: 3.073997, z: 3.073997}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &778064267 stripped
 GameObject:
@@ -3927,7 +3927,7 @@ PrefabInstance:
     - target: {fileID: 1475980670469183852, guid: 1b1e6b1f3babca64b8f2c22d6a884b65,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1475980670469183852, guid: 1b1e6b1f3babca64b8f2c22d6a884b65,
         type: 3}
@@ -3964,6 +3964,11 @@ PrefabInstance:
       propertyPath: livesLabel
       value: 
       objectReference: {fileID: 1082341896}
+    - target: {fileID: 1475980670469183855, guid: 1b1e6b1f3babca64b8f2c22d6a884b65,
+        type: 3}
+      propertyPath: scoreLabel2
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b1e6b1f3babca64b8f2c22d6a884b65, type: 3}
 --- !u!1 &1836240936
@@ -4190,7 +4195,7 @@ Transform:
   - {fileID: 1043099190}
   - {fileID: 795223531}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1928516724
 BoxCollider2D:
@@ -9925,7 +9930,7 @@ GameObject:
   - component: {fileID: 2131620539}
   m_Layer: 8
   m_Name: Player2
-  m_TagString: Player
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10269,7 +10274,7 @@ Transform:
   m_Children:
   - {fileID: 158198332}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3035542505548229632
 PrefabInstance:
@@ -10331,7 +10336,7 @@ PrefabInstance:
     - target: {fileID: 3035542504807498455, guid: 73fe0d810b9d0324b91a82f26612b65d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3035542504807498455, guid: 73fe0d810b9d0324b91a82f26612b65d,
         type: 3}

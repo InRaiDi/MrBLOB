@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    private PlayerController player1;
+    private PlayerController2 player2;
     private int lives;
     private int score;
     [Header("Game Objects")]
@@ -25,6 +27,7 @@ public class GameController : MonoBehaviour
             scoreLabel.text = score.ToString() + " / " + coinsCount.ToString();
         }
     }
+
 
     public int Lives
     {
@@ -51,6 +54,8 @@ public class GameController : MonoBehaviour
     {
         //this.liveImages[lives].enabled = false;
         Lives--;
+        //player1.Reset();
+        //player2.Reset();
         enemySound.Play();
     }
 

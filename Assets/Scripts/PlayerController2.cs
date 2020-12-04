@@ -60,7 +60,9 @@ public class PlayerController2 : MonoBehaviour
             hero2AnimState = Player2AnimState.WALK;
             anim2.SetInteger("AnimState", (int)Player2AnimState.WALK);
             rgb2.AddForce(Vector2.right * speed2);
+            
         }
+        rgb2.AddForce(Vector2.right * speed2);
         if (Input.GetKeyDown(KeyCode.LeftArrow) && (grounded2))
         {
             spriteRenderer2.flipX = true;
@@ -68,13 +70,14 @@ public class PlayerController2 : MonoBehaviour
             anim2.SetInteger("AnimState", (int)Player2AnimState.WALK);
             rgb2.AddForce(Vector2.left * speed2);
         }
+        //rgb2.velocity = new Vector2(Input.GetKeyDown(KeyCode.LeftArrow) * speed2, rgb2.velocity.y);
 
-        if (Input.GetAxis("Horizontal") == 0 && (grounded2))
+        if (Input.GetAxis("P2_Horizontal") == 0 && (grounded2))
         {
             hero2AnimState = Player2AnimState.IDLE;
             anim2.SetInteger("AnimState", (int)Player2AnimState.IDLE);
         }
-        if (Input.GetKeyDown(KeyCode.RightShift) && (grounded2))
+        if ((Input.GetAxis("P2_Jump") > 0) && (grounded2))
         {
             jumpSound.Play();
             anim2.SetInteger("AnimState", (int)Player2AnimState.JUMP);
@@ -82,7 +85,7 @@ public class PlayerController2 : MonoBehaviour
             rgb2.AddForce(new Vector2(0.0f, jumpForce));
             grounded2 = false;
         }
-        rgb2.velocity = new Vector2(Input.GetAxis("Horizontal") * speed2, rgb2.velocity.y);
+        rgb2.velocity = new Vector2(Input.GetAxis("P2_Horizontal") * speed2, rgb2.velocity.y);
         //rgb.velocity = new Vector2(Mathf.Clamp(rgb.velocity.x, -maxVel.x, maxVel.x), Mathf.Clamp(rgb.velocity.y, -maxVel.y, maxVel.y));
     }
     /// <summary>
@@ -144,11 +147,12 @@ public class PlayerController2 : MonoBehaviour
         {
             case "Death_Point":
                 gameController.GotHit();
-                Reset();
+              
+                //Reset();
                 break;
             case "Enemy":
                 gameController.GotHit();
-                Reset();
+                //Reset();
                 break;
         }
     }

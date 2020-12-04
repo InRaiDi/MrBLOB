@@ -11,6 +11,7 @@ TagManager:
   - Path
   - Border
   - Transition
+  - Player2
   layers:
   - Default
   - TransparentFX
